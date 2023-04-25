@@ -6,7 +6,6 @@
 #include <unistd.h>
 #include <limits.h>
 
-#define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 #define BUFF_FLUSH -1
 
@@ -14,20 +13,7 @@
 #define CONVERT_LOWERCASE 1
 #define NULL_STRING "(null)"
 
-/* FLAGS */
-#define par_init {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-#define F_PLUS 1
-#define F_SPACE 2
-#define F_HASH 4
-#define F_ZERO 8
-#define F_MINUS 16
-#define F_UNSIGN 1
-#define LOWERCASE 1
-#define UNSIGNED 2
-
-/* THE LENGTH */
-#define S_LONG 2
-#define S_SHORT 1
+#define PAR_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
 /**
  * struct parameter - The structure paramaters of flag and specifier
@@ -44,16 +30,16 @@
  */
 typedef struct parameter
 {
-	unsigned int f_plus;
-	unsigned int f_space;
-	unsigned int f_hash;
-	unsigned int f_zero;
-	unsigned int f_minus;
-	unsigned int f_unsign;
-	unsigned int s_long;
-	unsigned int s_short;
-	unsigned int width;
-	unsigned int precision;
+	unsigned int f_plus	: 1;
+	unsigned int f_space	: 1;
+	unsigned int f_hash	: 1;
+	unsigned int f_zero	: 1;
+	unsigned int f_minus	: 1;
+	unsigned int f_unsign	: 1;
+	unsigned int s_long	: 1;
+	unsigned int s_short	: 1;
+	unsigned int width	: 1;
+	unsigned int precision	: 1;
 } par_t;
 
 /**
