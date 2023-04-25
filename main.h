@@ -10,6 +10,10 @@
 #define BUFF_SIZE 1024
 #define BUFF_FLUSH -1
 
+#define CONVERT_UNSIGNED 2
+#define CONVERT_LOWERCASE 1
+#define NULL_STRING "(null)"
+
 /* FLAGS */
 #define par_init {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 #define F_PLUS 1
