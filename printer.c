@@ -3,17 +3,17 @@
  * printf_fto - Print the addresses of characters
  * @start: The start
  * @stop: The stop
- * @beside: the except
+ * @except: the except
  *
  * Return: 0
  */
-int printf_fto(char *start, char *stop, char *beside)
+int printf_fto(char *start, char *stop, char *except)
 {
 	int i = 0;
 
 	while (start <= stop)
 	{
-		if (start != beside)
+		if (start != except)
 			i += _putchar(*start);
 		start++;
 	}

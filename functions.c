@@ -8,7 +8,7 @@
  */
 int printf_c(va_list args, par_t *par)
 {
-	unsigned int pad = 1, som = 0, ch = (int) va_arg(args, int);
+	unsigned int pad = 1, som = 0, ch = va_arg(args, int);
 	char pad_char = ' ';
 
 	if (par->f_minus)
@@ -33,9 +33,9 @@ int printf_int(va_list args, par_t *par)
 	if (par->s_long)
 		l = va_arg(args, long);
 	else if (par->s_short)
-		l = (short int) va_arg(args, int);
+		l = (short int)va_arg(args, int);
 	else
-		l = (int) va_arg(args, int);
+		l = (int)va_arg(args, int);
 	return (printf_num(convert(l, 10, 0, par), par));
 }
 /**
@@ -47,8 +47,8 @@ int printf_int(va_list args, par_t *par)
  */
 int printf_s(va_list args, par_t *par)
 {
-	unsigned int pad = 0, som = 0, i = 0, j;
 	char *str = va_arg(args, char *), pad_char = ' ';
+	unsigned int pad = 0, som = 0, i = 0, j;
 	(void)par;
 
 	switch ((int)(!str))

@@ -82,7 +82,7 @@ int print_p(va_list args, par_t *par);
 /* printer.c */
 int printf_rev(va_list args, par_t *par);
 int printf_rot13(va_list args, par_t *par);
-int printf_fto(char *start, char *stop, char *beside);
+int printf_fto(char *start, char *stop, char *except);
 
 /* specifier.c */
 int get_printf_func(char *str, va_list args, par_t *par);

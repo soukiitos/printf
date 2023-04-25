@@ -7,7 +7,8 @@
  */
 int (*get_printf_spec(char *str))(va_list args, par_t *par)
 {
-	specifier_t specifier[] = {{"c", printf_c},
+	specifier_t specifier[] = {
+		{"c", printf_c},
 		{"s", printf_s},
 		{"%", printf_percent},
 		{"d", printf_int},
@@ -94,11 +95,11 @@ int get_printf_mod(char *str, par_t *par)
 
 	switch (*str)
 	{
-		case 'l':
-			i = par->s_long = 1;
-			break;
 		case 'h':
 			i = par->s_short = 1;
+			break;
+		case 'l':
+			i = par->s_long = 1;
 			break;
 	}
 	return (i);
@@ -117,7 +118,7 @@ char *get_width(char *str, par_t *par, va_list args)
 
 	if (*str == '*')
 	{
-		j = (int) va_arg(args, int);
+		j = va_arg(args, int);
 		str++;
 	}
 	else

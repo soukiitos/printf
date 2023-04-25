@@ -32,8 +32,8 @@ int _strlen(char *str)
  */
 int printf_num(char *s, par_t *par)
 {
-	int negative = (!par->f_unsign && *s == '-');
 	unsigned int i = _strlen(s);
+	int negative = (!par->f_unsign && *s == '-');
 
 	if (!par->precision && *s == '0' && !s[1])
 		s = "";
@@ -61,8 +61,8 @@ int printf_num(char *s, par_t *par)
  */
 int printf_rshift(char *s, par_t *par)
 {
-	char pad_char = ' ';
 	unsigned int negative1, negative2, n = 0, i = _strlen(s);
+	char pad_char = ' ';
 
 	if (par->f_zero && !par->f_minus)
 		pad_char = '0';
@@ -102,8 +102,8 @@ int printf_rshift(char *s, par_t *par)
  */
 int printf_lshift(char *s, par_t *par)
 {
-	char pad_char = ' ';
 	unsigned int negative1, negative2, n = 0, i = _strlen(s);
+	char pad_char = ' ';
 
 	if (par->f_zero && !par->f_minus)
 		pad_char = '0';

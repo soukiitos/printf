@@ -43,11 +43,11 @@ int print_u(va_list args, par_t *par)
 	unsigned long l;
 
 	if (par->s_long)
-		l = (unsigned long) va_arg(args, unsigned long);
+		l = (unsigned long)va_arg(args, unsigned long);
 	else if (par->s_short)
-		l = (unsigned short int) va_arg(args, unsigned int);
+		l = (unsigned short int)va_arg(args, unsigned int);
 	else
-		l = (unsigned int) va_arg(args, unsigned int);
+		l = (unsigned int)va_arg(args, unsigned int);
 	par->f_unsign = 1;
 	return (printf_num(convert(l, 10, CONVERT_UNSIGNED, par), par));
 }

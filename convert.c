@@ -13,11 +13,11 @@ int printf_x(va_list args, par_t *par)
 	unsigned long l;
 
 	if (par->s_long)
-		l = (unsigned long) va_arg(args, unsigned long);
+		l = (unsigned long)va_arg(args, unsigned long);
 	else if (par->s_short)
-		l = (unsigned short int) va_arg(args, unsigned int);
+		l = (unsigned short int)va_arg(args, unsigned int);
 	else
-		l = (unsigned int) va_arg(args, unsigned int);
+		l = (unsigned int)va_arg(args, unsigned int);
 	str = convert(l, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, par);
 	if (par->f_hash && l)
 	{
@@ -41,11 +41,11 @@ int printf_X(va_list args, par_t *par)
 	unsigned long l;
 
 	if (par->s_long)
-		l = (unsigned long) va_arg(args, unsigned long);
+		l = (unsigned long)va_arg(args, unsigned long);
 	else if (par->s_short)
-		l = (unsigned short int) va_arg(args, unsigned int);
+		l = (unsigned short int)va_arg(args, unsigned int);
 	else
-		l = (unsigned int) va_arg(args, unsigned int);
+		l = (unsigned int)va_arg(args, unsigned int);
 	str = convert(l, 16, CONVERT_UNSIGNED, par);
 	if (par->f_hash && l)
 	{
@@ -87,11 +87,11 @@ int printf_o(va_list args, par_t *par)
 	unsigned long l;
 
 	if (par->s_long)
-		l = (unsigned long) va_arg(args, unsigned long);
+		l = (unsigned long)va_arg(args, unsigned long);
 	else if (par->s_short)
-		l = (unsigned short int) va_arg(args, unsigned int);
+		l = (unsigned short int)va_arg(args, unsigned int);
 	else
-		l = (unsigned int) va_arg(args, unsigned int);
+		l = (unsigned int)va_arg(args, unsigned int);
 	str = convert(l, 8, CONVERT_UNSIGNED, par);
 	if (par->f_hash && l)
 		*--str = '0';
