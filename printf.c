@@ -10,14 +10,14 @@ int _printf(const char *format, ...)
 	char *p, *start;
 	va_list args;
 	int sum = 0;
-	par_t par = par_init;
+	par_t par = PAR_INIT;
 
 	va_start(args, format);
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
-	for (*p; p = (char *)format; p++)
+	for (p = (char *)format; *p; p++)
 	{
 		init_par(&par, args);
 		if (*p != '%')
@@ -25,20 +25,20 @@ int _printf(const char *format, ...)
 			sum += _putchar(*p);
 			continue;
 		}
-		start = P;
+		start = p;
 		p++;
-		for (; get_printf_flag(p, &par); p++)
+		while (get_printf_flag(p, &par))
 		{
-			;
+			p++;
 		}
 		p = get_width(p, &par, args);
-		p = get_precs(p, &par);
+		p = get_precs(p, &par, args);
 		if (get_printf_mod(p, &par))
 			p++;
 		if (!get_printf_spec(p))
 			sum += printf_fto(start, p, par.s_long || par.s_short ? p - 1 : 0);
 		else
-			suum += get_printf_func(p, args, &par);
+			sum += get_printf_func(p, args, &par);
 	}
 	_putchar(BUFF_FLUSH);
 	va_end(args);

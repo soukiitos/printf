@@ -30,7 +30,7 @@ int _strlen(char *str)
  *
  * Return: 0
  */
-int print_num(char *s, par_t *par)
+int printf_num(char *s, par_t *par)
 {
 	int negative = (!par->f_unsign && *s == '-');
 	unsigned int i = _strlen(s);
@@ -66,7 +66,7 @@ int printf_rshift(char *s, par_t *par)
 
 	if (par->f_zero && !par->f_minus)
 		pad_char = '0';
-	negative 1 = negative2 = (!par->f_unsign && *s == '-');
+	negative1 = negative2 = (!par->f_unsign && *s == '-');
 	if (negative1 && i < par->width && pad_char == '0' && !par->f_minus)
 		s++;
 	else

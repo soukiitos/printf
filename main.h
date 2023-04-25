@@ -57,9 +57,6 @@ typedef struct specifier
 /* printf.c */
 int _printf(const char *format, ...);
 
-/* _putchar.c */
-int _putchar(char c);
-
 /* put.c */
 int _puts(char *string);
 int _putchar(int c);

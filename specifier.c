@@ -24,12 +24,13 @@ int (*get_printf_spec(char *str))(va_list args, par_t *par)
 		{NULL, NULL}};
 	int i = 0;
 
-	for (; specifier[i].specifier; i++)
+	while (specifier[i].specifier)
 	{
 		if (*str == specifier[i].specifier[0])
 		{
 			return (specifier[i].fn);
 		}
+		i++;
 	}
 	return (NULL);
 }

@@ -10,23 +10,23 @@
  */
 char *convert(long int n, int i, int f, par_t *par)
 {
-	char *p, sign;
+	char *p, sign = 0;
 	static char b[50], *array;
-	unsigned long num = n;
+	unsigned long n = num;
 	(void)par;
 
-	if (!(f & CONVERT_UNSIGNED) && n < 0)
+	if (!(f & CONVERT_UNSIGNED) && num < 0)
 	{
-		num = -n;
+		n = -num;
 		sign = '-';
 	}
 	array = f & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	p = &b[49];
 	*p = '\0';
 	do {
-		*--p = array[num % i];
-		num /= i;
-	} while (num != 0);
+		*--p = array[n % i];
+		n /= i;
+	} while (n != 0);
 	if (sign)
 		*--p = sign;
 	return (p);
@@ -47,9 +47,9 @@ int print_u(va_list args, par_t *par)
 	else if (par->s_short)
 		l = (unsigned short int) va_arg(args, unsigned int);
 	else
-		l = (unsigned int) va _arg(args, unsigned int);
+		l = (unsigned int) va_arg(args, unsigned int);
 	par->f_unsign = 1;
-	return (print_num(convert(1, 10, CONVERT_UNSIGNED, par), par));
+	return (printf_num(convert(l, 10, CONVERT_UNSIGNED, par), par));
 }
 /**
  * print_p - Print the address
@@ -68,5 +68,5 @@ int print_p(va_list args, par_t *par)
 	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, par);
 	*--str = 'x';
 	*--str = '0';
-	return (print_num(str, par));
+	return (printf_num(str, par));
 }

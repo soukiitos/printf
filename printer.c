@@ -29,8 +29,8 @@ int printf_fto(char *start, char *stop, char *beside)
 int printf_rev(va_list args, par_t *par)
 {
 	int len, i = 0;
-	(void)par;
 	char *string = va_arg(args, char *);
+	(void)par;
 
 	if (string)
 	{
@@ -51,12 +51,14 @@ int printf_rev(va_list args, par_t *par)
  */
 int printf_rot13(va_list args, par_t *par)
 {
-	int i = 0, j = 0, count = 0;
+	int i, j, count = 0;
 	char array[] =
 		"NOPQRSTUVWXYZABCDEFGHIJKLM	nopqrstuvwxyzabcdefghijklm";
 	char *a = va_arg(args, char *);
 	(void)par;
 
+	i = 0;
+	j = 0;
 	while (a[i])
 	{
 		if ((a[i] >= 'A' && a[i] <= 'Z')
