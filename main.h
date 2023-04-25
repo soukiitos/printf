@@ -53,16 +53,16 @@ typedef struct parameter
 } par_t;
 
 /**
- * struct fmt - A structure format of printf
+ * struct specifier - A structure format of printf
  *
- * @fmt: The format.
+ * @specifier: The format.
  * @fn: The function associated.
  */
-typedef struct fmt
+typedef struct specifier
 {
-	char *fmt;
+	char *specifier;
 	int (*fn)(va_list, par_t *);
-} form;
+} specifier_t;
 
 /* printf.c */
 int _printf(const char *format, ...);
@@ -75,11 +75,12 @@ int _puts(char *string);
 int _putchar(int c);
 
 /* functions.c */
-printf_c(va_list args, par_t *par);
-printf_s(va_list args, par_t *par);
-printf_percent(va_list args, par_t *par);
-printf_d(va_list args, par_t *par);
-printf_i(va_list args, par_t *par);
+int printf_c(va_list args, par_t *par);
+int printf_s(va_list args, par_t *par);
+int printf_percent(va_list args, par_t *par);
+int printf_d(va_list args, par_t *par);
+int printf_i(va_list args, par_t *par);
+int printf_S(va_list args, par_t *par);
 
 /* convert.c */
 int printf_binary(va_list args, par_t *par);
