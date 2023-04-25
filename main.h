@@ -65,8 +65,7 @@ int _putchar(int c);
 int printf_c(va_list args, par_t *par);
 int printf_s(va_list args, par_t *par);
 int printf_percent(va_list args, par_t *par);
-int printf_d(va_list args, par_t *par);
-int printf_i(va_list args, par_t *par);
+int printf_int(va_list args, par_t *par);
 int printf_S(va_list args, par_t *par);
 
 /* convert.c */

@@ -20,32 +20,13 @@ int printf_c(va_list args, par_t *par)
 	return (som);
 }
 /**
- * printf_d - Print integers
+ * printf_int - Print integers
  * @args: The arguments
  * @par: The structure's parameters
  *
  * Return: 0
  */
-int printf_d(va_list args, par_t *par)
-{
-	long l;
-
-	if (par->s_long)
-		l = va_arg(args, long);
-	else if (par->s_short)
-		l = (short int) va_arg(args, int);
-	else
-		l = (int) va_arg(args, int);
-	return (printf_num(convert(l, 10, 0, par), par));
-}
-/**
- * printf_i - Print integers
- * @args: The arguments
- * @par: The structure's parameters
- *
- * Return: 0
- */
-int printf_i(va_list args, par_t *par)
+int printf_int(va_list args, par_t *par)
 {
 	long l;
 
