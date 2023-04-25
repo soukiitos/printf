@@ -13,7 +13,7 @@ int printf_fto(char *start, char *stop, char *beside)
 
 	while (start <= stop)
 	{
-		if (start != except)
+		if (start != beside)
 			i += _putchar(*start);
 		start++;
 	}
@@ -37,7 +37,7 @@ int printf_rev(va_list args, par_t *par)
 		for (len = 0; *string; string++)
 			len++;
 		string--;
-		for (; len > 0; len--; string--)
+		for (; len > 0; len--, string--)
 			i += _putchar(*string);
 	}
 	return (i);

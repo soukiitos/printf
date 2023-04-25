@@ -15,7 +15,7 @@ int printf_x(va_list args, par_t *par)
 	if (par->s_long)
 		l = (unsigned long) va_arg(args, unsigned long);
 	else if (par->s_short)
-		l = (unsigned short ont) va_arg(args, unsigned int);
+		l = (unsigned short int) va_arg(args, unsigned int);
 	else
 		l = (unsigned int) va_arg(args, unsigned int);
 	str = convert(l, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, par);
@@ -65,8 +65,8 @@ int printf_X(va_list args, par_t *par)
 int printf_binary(va_list args, par_t *par)
 {
 	int c = 0;
-	char *str = convert(n, 2, CONVERT_UNSIGNED, par);
 	unsigned int n = va_arg(args, unsigned int);
+	char *str = convert(n, 2, CONVERT_UNSIGNED, par);
 
 	if (par->f_hash && n)
 		*--str = '0';

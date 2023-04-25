@@ -84,7 +84,7 @@ int printf_s(va_list args, par_t *par)
 			for (i = 0; i < pad; i++)
 				som += _putchar(*str++);
 		else
-			sum += _puts(str);
+			som += _puts(str);
 	}
 	while (j++ < par->width)
 		som += _putchar(pad_char);
@@ -122,7 +122,7 @@ int printf_percent(va_list args, par_t *par)
 int printf_S(va_list args, par_t *par)
 {
 	int som = 0;
-	char h;
+	char *h;
 	char *str = va_arg(args, char *);
 
 	if ((int)(!str))

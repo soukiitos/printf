@@ -12,12 +12,12 @@ char *convert(long int n, int i, int f, par_t *par)
 {
 	char *p, sign = 0;
 	static char b[50], *array;
-	unsigned long n = num;
+	unsigned long num = n;
 	(void)par;
 
-	if (!(f & CONVERT_UNSIGNED) && num < 0)
+	if (!(f & CONVERT_UNSIGNED) && n < 0)
 	{
-		n = -num;
+		num = -n;
 		sign = '-';
 	}
 	array = f & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
@@ -25,8 +25,8 @@ char *convert(long int n, int i, int f, par_t *par)
 	*p = '\0';
 	do {
 		*--p = array[n % i];
-		n /= i;
-	} while (n != 0);
+		num /= i;
+	} while (num != 0);
 	if (sign)
 		*--p = sign;
 	return (p);

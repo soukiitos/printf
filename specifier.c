@@ -17,7 +17,7 @@ int (*get_printf_spec(char *str))(va_list args, par_t *par)
 		{"u", print_u},
 		{"x", printf_x},
 		{"X", printf_X},
-		{"p", printf_p},
+		{"p", print_p},
 		{"S", printf_S},
 		{"r", printf_rev},
 		{"R", printf_rot13},
@@ -111,7 +111,7 @@ int get_printf_mod(char *str, par_t *par)
  *
  * Return: 0
  */
-char get_width(char *str, va_list args, par_t *par)
+char *get_width(char *str, par_t *par, va_list args)
 {
 	int j = 0;
 
@@ -123,7 +123,7 @@ char get_width(char *str, va_list args, par_t *par)
 	else
 	{
 		while (_isdigit(*str))
-			j = j * 10 + (*s++ - '0');
+			j = j * 10 + (*str++ - '0');
 	}
 	par->width = j;
 	return (str);

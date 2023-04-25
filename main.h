@@ -38,8 +38,8 @@ typedef struct parameter
 	unsigned int f_unsign	: 1;
 	unsigned int s_long	: 1;
 	unsigned int s_short	: 1;
-	unsigned int width	: 1;
-	unsigned int precision	: 1;
+	unsigned int width;
+	unsigned int precision;
 } par_t;
 
 /**
@@ -88,7 +88,7 @@ int printf_fto(char *start, char *stop, char *beside);
 /* specifier.c */
 int get_printf_func(char *str, va_list args, par_t *par);
 int get_printf_mod(char *str, par_t *par);
-char get_width(char *str, va_list args, par_t *par);
+char *get_width(char *str, par_t *par, va_list args);
 int get_printf_flag(char *str, par_t *par);
 int (*get_printf_spec(char *str))(va_list args, par_t *par);
 
